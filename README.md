@@ -32,7 +32,7 @@ The project utilizes GitHub Actions to create a CI/CD pipeline. The pipeline con
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Knirag/CI-CD-Summative.git
     ```
 2. **Navigate into the project directory**:
     ```bash
@@ -40,7 +40,8 @@ The project utilizes GitHub Actions to create a CI/CD pipeline. The pipeline con
    
 ## Project Setup (continued)
 
-3. **Create a new `.env` file**: Copy the contents of `.env.example` into a new `.env` file and adjust the configurations as needed.
+3. **Create a new `.env` file**
+
 4. **Install the dependencies**:
     ```bash
     npm install
