@@ -1,5 +1,5 @@
 # Use the official Node.js image.
-FROM node:20
+FROM node:22.5.0-bookworm-slim
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
