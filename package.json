@@ -5,6 +5,7 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.1",
+    "snyk": "^1.348.0",
     "winston": "^3.13.1"
   },
   "devDependencies": {
