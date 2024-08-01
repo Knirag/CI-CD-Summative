@@ -14,7 +14,6 @@ This project is a backend application for managing blog creation. It is built us
 - **Docker Compose**: Tool for defining and running multi-container Docker applications.
 - **GitHub Actions**: CI/CD platform for automating build, test, and deployment processes.
 - **Nginx**: Web server used for serving the application.
-- **Terraform**: Infrastructure as Code tool for managing cloud resources.
 - **Snyk**: Security tool for scanning and fixing vulnerabilities in dependencies.
 - **DigitalOcean**: Cloud provider for deploying the application.
 
@@ -56,36 +55,38 @@ The project utilizes GitHub Actions to create a CI/CD pipeline. The pipeline con
 
 1. **Clone the repository** (if not already done):
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Knirag/CI-CD-Summative.git
     ```
 2. **Navigate into the project directory**:
     ```bash
-    cd <project-directory>
+    cd CI-CD-Summative folder(Wherever it is located)
     ```
 3. **Build and start the application using Docker Compose**:
     ```bash
     docker-compose up --build
     ```
-   The server will be running at `http://localhost:3000` (or whatever port you have configured).
+   The server will be running at `http://localhost:4000`.
 
 ## Endpoints
 
-- **POST /api/auth/signup**
+- **POST http://64.227.147.241:4000/auth/register**
     - Description: Create a new user account.
     - Request Body:
         ```json
         {
+             "username":"Name",
             "email": "user@example.com",
             "password": "yourpassword"
         }
         ```
     - Response: Returns a token for authentication.
 
-- **POST /api/auth/login**
+- **POST http://64.227.147.241:4000/auth/login**
     - Description: Login to the application.
     - Request Body:
         ```json
         {
+            "username":"Name",
             "email": "user@example.com",
             "password": "yourpassword"
         }
@@ -136,7 +137,7 @@ The project utilizes GitHub Actions to create a CI/CD pipeline. The pipeline con
     ```bash
     npm run dev
     ```
-   The server will be running at `http://localhost:3000` (or whatever port you have configured).
+   The server will be running at `http://localhost:4000`.
 
 ## Docker Configuration
 
@@ -145,27 +146,59 @@ The project utilizes GitHub Actions to create a CI/CD pipeline. The pipeline con
 
 ## DEPLOYMENT
 ## DIGITALOCEAN
+
 Deploy the application to DigitalOcean using the Docker image created during the CI/CD pipeline.
-Access the deployed application through **THIS URL**.
-## INFRASTRUCTURE AS CODE WITH TERRAFORM
-Setup: Define and manage cloud resources with Terraform.
 
-## Commands:
+### Deployment Steps
 
-bash
-Copy code
-terraform init
-terraform apply
-## MONITORING AND LOGGING
-**Monitoring**: Use tools like Grafana to monitor application performance and health.
-**Logging**: Implement logging with Pino to capture and analyze application logs.
+1. **Login to DigitalOcean:**
+   - Use your credentials to log in to your DigitalOcean account.
+
+2. **Create a Droplet:**
+   - Set up a new Droplet with the desired specifications. For this project, a Docker-compatible Ubuntu Droplet is recommended.
+
+3. **Access the Droplet:**
+   - SSH into your Droplet using the command:
+     ```bash
+     ssh root@64.227.147.241
+     ```
+
+4. **Install Docker and Docker Compose:**
+   - Ensure Docker and Docker Compose are installed on your Droplet. Follow the [official Docker documentation](https://docs.docker.com/engine/install/ubuntu/) for installation instructions.
+
+5. **Clone the Repository:**
+   - Clone the repository containing your Docker Compose file and application code:
+     ```bash
+     git clone <repository-url>
+     cd <repository-directory>
+     ```
+
+6. **Deploy the Application:**
+   - Use Docker Compose to build and start the application:
+     ```bash
+     docker-compose up -d
+     ```
+
+7. **Verify the Deployment:**
+   - Check the status of your containers to ensure they are running:
+     ```bash
+     docker-compose ps
+     ```
+
+8. **Access the Application:**
+   - Open your web browser and navigate to `http://64.227.147.241:3000` to access the application.
+
+
+### Monitoring and Access
+
+- **Grafana:** Access Grafana at `http://64.227.147.241:3000` for monitoring and dashboards.
+- **Prometheus:** Access Prometheus at `http://64.227.147.241:9090` for metrics and querying.
+
 ## SECURITY PRACTICES
 **Snyk**: Regularly scan for vulnerabilities in dependencies using Snyk.
 
 ## Command:
 
-bash
-Copy code
 snyk test
 **Secure Coding**: Follow best practices to prevent common vulnerabilities.
 
@@ -184,6 +217,5 @@ snyk test
 - [Docker](https://www.docker.com/)
 - [GitHub Actions](https://github.com/features/actions)
 - [Nginx](https://www.nginx.com/)
-- [Terraform]
 - [Snyk]
 - [DigitalOcean]
