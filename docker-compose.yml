@@ -6,7 +6,7 @@ services:
     container_name: ci-cd-summative-app
     restart: always
     ports:
-    - "3000:3000"
+    - "4000:4000"
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/ci-cd-summative
