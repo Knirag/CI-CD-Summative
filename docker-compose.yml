@@ -6,7 +6,7 @@ services:
     container_name: ci-cd-summative-app
     restart: always
     ports:
-      - "3000:3000"
+    - 127.0.0.1:3000:3000
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/ci-cd-summative
@@ -21,6 +21,16 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+nginx:
+    image: nginx:latest
+    container_name: ci-cd-summative-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
 
+      
 volumes:
   mongo-data:

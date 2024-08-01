@@ -1,11 +1,11 @@
 const userFixture = {
   validUser: {
-    name: "Test User",
+    username: "Test User",
     email: "test@example.com",
     password: "password123",
   },
   anotherUser: {
-    name: "Another User",
+    username: "Another User",
     email: "another@example.com",
     password: "password123",
   },
